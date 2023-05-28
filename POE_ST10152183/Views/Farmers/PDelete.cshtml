@@ -1,0 +1,51 @@
+﻿@model POE_ST10152183.Models.Products
+
+@{
+    ViewData["Title"] = "PDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<p>@ViewBag.Message </p>
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FarmerId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FarmerId)
+        </dd>
+    </dl>
+    
+    <form asp-action="PDelete">
+        <input type="submit" value="PDelete" class="btn btn-danger" /> |
+        <a asp-action="PIndex">Back to List</a>
+    </form>
+</div>

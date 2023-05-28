@@ -1,0 +1,68 @@
+﻿@model IEnumerable<POE_ST10152183.Models.Products>
+@using POE_ST10152183.Controllers;
+@{
+    ViewData["Title"] = "PIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Products</h1>
+    <a asp-action="PCreate">Create New</a>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    
+</style>
+<table class="table" align="center" valign="middle" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FarmerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadDate)
+            </th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FarmerId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadDate)
+                </td>
+            <td>
+                @Html.ActionLink("Edit", "PEdit", new { id=item.ProductId }) |
+                    @Html.ActionLink("Delete", "PDelete", new { id=item.ProductId }) 
+            </td>
+        </tr>
+}   </tbody>
+</table>

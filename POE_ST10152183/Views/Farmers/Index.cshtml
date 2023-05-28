@@ -1,0 +1,70 @@
+﻿@model IEnumerable<POE_ST10152183.Models.Farmers>
+
+<p>
+    <a asp-action="Create" class="accordion-button">Create New</a>
+</p>
+<style>
+    table, th, td {
+        border: 1px solid black;
+       
+    }
+</style>
+<table class="table" align="center" valign="middle" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FarmerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FEmailAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FarmerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FEmailAddress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.FarmerId}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.FarmerId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

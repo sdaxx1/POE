@@ -1,0 +1,70 @@
+﻿@model IEnumerable<POE_ST10152183.Models.Employees>
+
+<p>
+    <a asp-action="Create" class="accordion-button">Create New</a>
+</p>
+<p>@ViewBag.Message </p>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<table class="table" align="center" valign="middle" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ELastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EEmailAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ELastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EEmailAddress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.EmployeeId  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

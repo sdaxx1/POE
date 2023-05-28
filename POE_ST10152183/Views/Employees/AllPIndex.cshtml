@@ -1,0 +1,81 @@
+﻿@model IEnumerable<POE_ST10152183.Models.Products>
+
+@{
+    ViewData["Title"] = "AllPIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+  
+}
+
+<h1>All products</h1>
+<p>@ViewBag.Message </p>
+<div>
+    @using (Html.BeginForm("AllPIndex","Employees", FormMethod.Get))
+    {
+                    <span><b>Search By: </b></span>
+                    @Html.RadioButton("searchBy","ProductType")
+                    <text>Product Type</text>
+                    @Html.RadioButton("searchBy","FarmerId")
+                    <text>Farmer Id</text>
+                    @Html.RadioButton("searchBy","UploadDate")
+                    <text>Upload Date</text>
+                    <span>Start Date: </span><input type="date" name="start">
+                    <span>End Date: </span><input type="date" name="end">
+                    @Html.TextBox("searchValue",null,new{ @class= "form-control", placeholder="Enter Product Type or Farmer ID"})
+                    <input type="submit" class="accordion-button" value="Search">
+
+    }
+</div>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<table class="table" align="center" valign="middle" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FarmerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FarmerId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadDate)
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
